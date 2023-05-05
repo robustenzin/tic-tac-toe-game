@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the repository
+                https://github.com/robustenzin/tic-tac-toe-game/tree/master
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                // Build the application
+                sh 'python3 tic-tac.py'
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                // Deploy the application
+                sh 'python3 deploy.py'
+            }
+        }
+    }
+}
+
+
